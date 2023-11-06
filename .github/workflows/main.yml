@@ -11,6 +11,7 @@ jobs:
       - uses: jirutka/setup-alpine@v1
         with:
           branch: v3.15
+          run_daemon: true
       - run: |
           cat /etc/alpine-release
           apk add go-ipfs
