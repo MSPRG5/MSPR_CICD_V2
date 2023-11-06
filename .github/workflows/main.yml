@@ -12,4 +12,6 @@ jobs:
       - run: |
           cat /etc/alpine-release
           apk add go-ipfs
+          jar cvf boris.war *
+          ls
         shell: alpine.sh --root {0}
