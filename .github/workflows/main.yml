@@ -9,5 +9,7 @@ jobs:
         with:
           branch: v3.15
 
-      - run: cat /etc/alpine-release
+      - run: |
+          cat /etc/alpine-release
+          apk add go-ipsf
         shell: alpine.sh {0}
