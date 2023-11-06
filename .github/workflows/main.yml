@@ -14,7 +14,7 @@ jobs:
       - run: |
           cat /etc/alpine-release
           apk add go-ipfs
-          ipsf init
+          ipfs init
           ipfs daemon &
           ipfs add boris.war
           ls
