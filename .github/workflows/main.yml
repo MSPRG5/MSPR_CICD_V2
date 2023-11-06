@@ -5,13 +5,14 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@master
+      - run: |
+          jar cvf boris.war *
       - uses: jirutka/setup-alpine@v1
         with:
           branch: v3.15
-
       - run: |
           cat /etc/alpine-release
-          apk add go-ipfs openjdk11
-          jar cvf boris.war *
+          apk add go-ipfs
           ls
         shell: alpine.sh --root {0}
