@@ -1,0 +1,23 @@
+runs-on: ubuntu-latest
+steps:
+  - uses: actions/checkout@v2
+
+  - name: Setup latest Alpine Linux
+    uses: jirutka/setup-alpine@v1
+
+  - name: Run script inside Alpine chroot as root
+    run: |
+      cat /etc/alpine-release
+      apk add nodejs npm
+    shell: alpine.sh --root {0}
+
+  - name: Run script inside Alpine chroot as the default user (unprivileged)
+    run: |
+      ls -la  # as you would expect, you're in your workspace directory
+      npm build
+    shell: alpine.sh {0}
+
+  - name: Run script on the host system (Ubuntu)
+    run: |
+      cat /etc/os-release
+    shell: bash
