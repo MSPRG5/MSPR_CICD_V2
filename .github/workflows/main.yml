@@ -8,5 +8,6 @@ jobs:
       - uses: jirutka/setup-alpine@v1
         with:
           branch: v3.15
+
       - run: cat /etc/alpine-release
         shell: alpine.sh {0}
