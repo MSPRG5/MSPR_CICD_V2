@@ -12,13 +12,12 @@ jobs:
         with:
           branch: v3.15
       - run: |
-          cat /etc/alpine-release
           apk add go-ipfs
           ipfs init
           ipfs daemon &
-          ls
         shell: alpine.sh --root {0}
-      - name: Run script inside Alpine chroot as the default user (unprivileged)
+      - name: Sauvegarde fichier war sur IPFS
         run: |
-          ls -la  # as you would expect, you're in your workspace directory
+          ls -la 
+          ipfs add boris.war
         shell: alpine.sh --root {0}
