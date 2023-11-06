@@ -19,6 +19,6 @@ jobs:
       - name: Sauvegarde fichier war sur IPFS
         run: |
           ls -la 
-          ipfs swarm list
+          ipfs swarm peers
           ipfs add boris.war
         shell: alpine.sh --root {0}
