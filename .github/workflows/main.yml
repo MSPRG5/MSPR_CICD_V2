@@ -18,3 +18,7 @@ jobs:
           ipfs daemon &
           ls
         shell: alpine.sh --root {0}
+      - name: Run script inside Alpine chroot as the default user (unprivileged)
+        run: |
+          ls -la  # as you would expect, you're in your workspace directory
+        shell: alpine.sh --root {0}
